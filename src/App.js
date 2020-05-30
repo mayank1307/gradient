@@ -1,5 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
+import htmlToImage from 'html-to-image';
+
 class App extends React.Component {
   constructor(){
     super();
@@ -38,6 +40,15 @@ class App extends React.Component {
       })
     }
   }
+  ImageC=()=>{
+  htmlToImage.toJpeg(document.getElementById('boxG'), { quality: 1 })
+  .then(function (dataUrl) {
+    var link = document.createElement('a');
+    link.download = 'ui-grad.jpeg';
+    link.href = dataUrl;
+    link.click();
+  });
+  } 
   copyCodeToClipboard = () => {
     const el = this.textArea
     el.select()
@@ -46,10 +57,11 @@ class App extends React.Component {
   render(){
   return (
     <div className="App mx-5 my-5">
-      <div className="box"  style={{background:this.state.colors,height:"400px"}}></div><br/>
+      <div className="box" id="boxG" style={{background:this.state.colors,height:"400px"}}></div><br/>
       <Button className="mx-2 my-1 px-3" variant="outline-danger" onClick={this.GenerateG}>Generate Gradient</Button>
       <Button className="mx-2 my-1 px-3" variant="outline-dark" onClick={this.ChangeDir}>Change Direction</Button>
       <Button className="mx-2 my-1 px-3" variant="outline-info" onClick={() => this.copyCodeToClipboard()}>Copy CSS</Button>
+      <Button className="mx-2 my-1 px-3" variant="outline-dark" onClick={this.ImageC}>Download JPEG</Button>
       <textarea ref={(textarea) => this.textArea = textarea} style={{opacity:"0",width:"0"}} value={"background:"+this.state.colors+";"}/>
     </div>
   );
