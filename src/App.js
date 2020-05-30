@@ -60,8 +60,8 @@ class App extends React.Component {
       <div className="box" id="boxG" style={{background:this.state.colors,height:"400px"}}></div><br/>
       <Button className="mx-2 my-1 px-3" variant="outline-danger" onClick={this.GenerateG}>Generate Gradient</Button>
       <Button className="mx-2 my-1 px-3" variant="outline-dark" onClick={this.ChangeDir}>Change Direction</Button>
-      <Button className="mx-2 my-1 px-3" variant="outline-info" onClick={() => this.copyCodeToClipboard()}>Copy CSS</Button>
       <Button className="mx-2 my-1 px-3" variant="outline-dark" onClick={this.ImageC}>Download JPEG</Button>
+      <Button className="mx-2 my-1 px-3" variant="outline-info" onClick={() => this.copyCodeToClipboard()}>Copy CSS</Button>
       <textarea ref={(textarea) => this.textArea = textarea} style={{opacity:"0",width:"0"}} value={"background:"+this.state.colors+";"}/>
     </div>
   );
