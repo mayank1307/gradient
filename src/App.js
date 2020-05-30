@@ -5,9 +5,12 @@ class App extends React.Component {
     super();
     this.state={
       NumberHolder:0,
+      dirC:0,
       value: '',
       copied: false,
-      colors:"rgb(0,0,0)"
+      GradCol:"rgb(7,66,193),rgb(87,190,160))",
+      dir:"to left,",
+      colors:"linear-gradient(rgb(7,66,193),rgb(87,190,160))"
     }
   }
   myFunction() {
@@ -24,10 +27,29 @@ class App extends React.Component {
     })
   }
   GenerateG=()=>{
-    var colorCode='linear-gradient(rgb('+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+'),rgb('+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+'))';
+    var Grading='rgb('+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+'),rgb('+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+'))';
+    var colorCode='linear-gradient('+Grading;
     this.setState({
+      GradCol:Grading,
       colors:colorCode
     })
+  }
+  ChangeDir=()=>{
+    var dirs=['to right,','to top,','to bottom,',"to left,"];
+    if(this.state.dirC===4){
+      this.setState({
+        dir:dirs[0],
+        colors:'linear-gradient('+this.state.dir+this.state.GradCol,
+        dirC:1
+      })
+    }
+    else{
+      this.setState({
+        dirC:this.state.dirC+1,
+        dir:dirs[this.state.dirC],
+        colors:'linear-gradient('+this.state.dir+this.state.GradCol
+      })
+    }
   }
   copyCodeToClipboard = () => {
     const el = this.textArea
@@ -40,8 +62,9 @@ class App extends React.Component {
       <div  style={{background:this.state.colors,height:"400px"}}></div><br/>
       <button onClick={this.GenerateG}>Generate Gradient</button>
       <button onClick={this.Generate}>Generate Color</button>
-      <textarea ref={(textarea) => this.textArea = textarea} value={this.state.colors}/>
+      <button onClick={this.ChangeDir}>Change Direction</button>
       <button onClick={() => this.copyCodeToClipboard()}>Copy CSS</button>
+      <textarea ref={(textarea) => this.textArea = textarea} style={{opacity:"0"}} value={"background:"+this.state.colors+";"}/>
     </div>
   );
 }}
