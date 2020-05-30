@@ -22,7 +22,7 @@ class App extends React.Component {
     })
   }
   ChangeDir=()=>{
-    var dirs=['to right,','to top,','to bottom,',"to left,"];
+    var dirs=['to top,','to right,','to bottom,',"to left,"];
     if(this.state.dirC===4){
       this.setState({
         dir:dirs[0],
@@ -48,9 +48,9 @@ class App extends React.Component {
     <div className="App mx-5 my-5">
       <div className="box"  style={{background:this.state.colors,height:"400px"}}></div><br/>
       <Button className="mx-2 my-1 px-3" variant="outline-danger" onClick={this.GenerateG}>Generate Gradient</Button>
-      <Button className="mx-2 my-1 px-3" variant="outline-danger" onClick={this.ChangeDir}>Change Direction</Button>
-      <Button className="mx-2 my-1 px-3" variant="outline-danger" onClick={() => this.copyCodeToClipboard()}>Copy CSS</Button>
-      <textarea ref={(textarea) => this.textArea = textarea} style={{opacity:"0"}} value={"background:"+this.state.colors+";"}/>
+      <Button className="mx-2 my-1 px-3" variant="outline-dark" onClick={this.ChangeDir}>Change Direction</Button>
+      <Button className="mx-2 my-1 px-3" variant="outline-info" onClick={() => this.copyCodeToClipboard()}>Copy CSS</Button>
+      <textarea ref={(textarea) => this.textArea = textarea} style={{opacity:"0",width:"0"}} value={"background:"+this.state.colors+";"}/>
     </div>
   );
 }}
