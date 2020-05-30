@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Button from 'react-bootstrap/Button';
 class App extends React.Component {
   constructor(){
     super();
@@ -12,19 +12,6 @@ class App extends React.Component {
       dir:"to left,",
       colors:"linear-gradient(rgb(7,66,193),rgb(87,190,160))"
     }
-  }
-  myFunction() {
-    var copyText = document.getElementById("myInput");
-    copyText.select();
-    copyText.setSelectionRange(0, 99999); /*For mobile devices*/
-    document.execCommand("copy");
-    alert("Copied the text: " + copyText.value);
-  }
-  Generate=()=>{
-    var colorCode='rgb('+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+')';
-    this.setState({
-      colors:colorCode
-    })
   }
   GenerateG=()=>{
     var Grading='rgb('+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+'),rgb('+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+'))';
@@ -59,11 +46,10 @@ class App extends React.Component {
   render(){
   return (
     <div className="App mx-5 my-5">
-      <div  style={{background:this.state.colors,height:"400px"}}></div><br/>
-      <button onClick={this.GenerateG}>Generate Gradient</button>
-      <button onClick={this.Generate}>Generate Color</button>
-      <button onClick={this.ChangeDir}>Change Direction</button>
-      <button onClick={() => this.copyCodeToClipboard()}>Copy CSS</button>
+      <div className="box"  style={{background:this.state.colors,height:"400px"}}></div><br/>
+      <Button className="mx-2 my-1 px-3" variant="outline-danger" onClick={this.GenerateG}>Generate Gradient</Button>
+      <Button className="mx-2 my-1 px-3" variant="outline-danger" onClick={this.ChangeDir}>Change Direction</Button>
+      <Button className="mx-2 my-1 px-3" variant="outline-danger" onClick={() => this.copyCodeToClipboard()}>Copy CSS</Button>
       <textarea ref={(textarea) => this.textArea = textarea} style={{opacity:"0"}} value={"background:"+this.state.colors+";"}/>
     </div>
   );
