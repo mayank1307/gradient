@@ -83,11 +83,10 @@ class App extends React.Component {
       <Button className="mx-1 px-3" variant="outline-success" onClick={this.ImageC}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M17 13v-13h-2v5h-2v-3h-2v7h-2v-9h-2v13h-6l11 11 11-11z"/></svg></Button>
       <Button className="mx-1 px-3" variant="outline-info" onClick={() => this.copyCodeToClipboard()}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 10.935v2.131l-8 3.947v-2.23l5.64-2.783-5.64-2.79v-2.223l8 3.948zm-16 3.848l-5.64-2.783 5.64-2.79v-2.223l-8 3.948v2.131l8 3.947v-2.23zm7.047-10.783h-2.078l-4.011 16h2.073l4.016-16z"/></svg></Button>
       <InputGroup className=" row">
-        <div className="col-12 py-1 px-1 col-xl-6"><FormControl placeholder="Add text" id="textBox"/></div>
-        <div className="py-1 px-1"><Button className="px-2" onClick={this.ChangeText} variant="success">Change Text</Button></div>
-        <div className="py-1"><Button className="px-2" onClick={this.DeleteText} variant="danger">Delete Text</Button></div>
-        <div className="py-1 px-1"><Button className="px-3" onClick={this.DecText} variant="dark">-</Button></div>
-        <div className="py-1"><Button className="px-3" onClick={this.IncText} variant="dark">+</Button></div>
+        <div className="col-12 py-1 px-3 col-xl-6"><FormControl placeholder="Add text" onChange={this.ChangeText} id="textBox"/></div>
+        <div className="py-1 px-3"><Button className="px-2" onClick={this.DeleteText} variant="outline-danger"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/></svg></Button></div>
+        <div className="py-1 px-1"><Button className="px-2" onClick={this.DecText} variant="outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-12v-2h12v2z"/></svg></Button></div>
+        <div className="py-1 px-1"><Button className="px-2" onClick={this.IncText} variant="outline-info"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"/></svg></Button></div>
       </InputGroup>
       <textarea ref={(textarea) => this.textArea = textarea} style={{opacity:"0",width:"0"}} value={"background:"+this.state.colors+";"}/>
     </div>
