@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import AppX from './App';
 import * as serviceWorker from './serviceWorker';
+import Footer from './Footer';
 
 ReactDOM.render(
   <React.StrictMode>
     <AppX />
+    <Footer/>
   </React.StrictMode>,
   document.getElementById('root')
 );

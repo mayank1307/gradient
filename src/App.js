@@ -4,7 +4,6 @@ import htmlToImage from 'html-to-image';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Modal from 'react-bootstrap/Modal';
-import Footer from './Footer';
 
 class App extends React.Component {
   constructor(){
@@ -83,7 +82,7 @@ DecText=()=>{
   
   render(){
     return (
-      <div>
+      <div className="justify-content-center px-2 py-2">
       <div className="box" id="boxG" style={{background:this.state.colors,height:"450px"}}><h5 className="font-weight-bold text-light px-5 py-5" style={{fontSize:this.state.textSizes+"px",alignItems:"center",justifyContent: "center",textShadow:"2px 2px 8px #000000",display: "flex"}}>{this.state.textData}</h5></div><br/>
       <Button className="mx-1 px-2" variant="outline-light" onClick={this.GenerateG}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10.024 4h6.015l7.961 8-7.961 8h-6.015l7.961-8-7.961-8zm-10.024 16h6.015l7.961-8-7.961-8h-6.015l7.961 8-7.961 8z"/></svg></Button>
       <Button className="mx-1 px-2" variant="outline-light" onClick={this.ChangeDir}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 12c0 6.627 5.373 12 12 12s12-5.373 12-12-5.373-12-12-12-12 5.373-12 12zm16.168-3.168l1.832-1.832v6h-6l1.789-1.789c-4.382-3.121-10.677 1.802-5.011 7.706-8.822-5.606-.456-16.155 7.39-10.085z"/></svg></Button>
@@ -110,7 +109,6 @@ DecText=()=>{
         <div className="py-1"><Button onClick={this.IncText} variant="outline-light"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z" fill="teal" /></svg></Button></div>
       </InputGroup>
       <textarea ref={(textarea) => this.textArea = textarea} style={{opacity:"0",width:"0"}} value={"background:"+this.state.colors+";"}/>
-      <Footer/>
     </div>
   );
 }}
