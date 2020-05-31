@@ -13,7 +13,7 @@ class App extends React.Component {
       dirC:0,
       i:-1,
       show:true,
-      fnts:"poppins",
+      fnts:"",
       setShow:false,
       textSizes:50,
       textData:"",
@@ -50,7 +50,7 @@ class App extends React.Component {
     }
   }
   ImageC=()=>{
-    htmlToImage.toJpeg(document.getElementById('boxG'), { quality: 1 })
+    htmlToImage.toJpeg(document.getElementById('boxG'), { quality: 0.95 })
     .then(function (dataUrl) {
       var link = document.createElement('a');
       link.download = 'ui-grad.jpeg';
@@ -114,7 +114,7 @@ render(){
           </Button>
         </Modal.Footer>
       </Modal>
-      <InputGroup className="px-1 py-2 row">
+      <InputGroup className="py-2 row">
         <div className="col-12 py-1 col-md-6"><FormControl placeholder="Add text" onChange={this.ChangeText} id="textBox"/></div>
         <div className="py-1 px-3"><Button onClick={this.DeleteText} variant="outline-light"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z" fill="red"/></svg></Button></div>
         <div className="py-1"><Button onClick={this.DecText} variant="outline-light"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-12v-2h12v2z" fill="teal" /></svg></Button></div>
